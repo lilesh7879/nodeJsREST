@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/head'); %>
+</head>
+
+<body>
+
+    <header>
+        <%- include('partials/header'); %>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row mt-2">
+            <div class="col-md-8">
+                <div class="card mt-2">
+                    <div class="card-header ">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <h3><%= data.title %></h3>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="btn-group mr-1" role="group" aria-label="Basic example">
+                                    <a href='http://localhost:3000/<%= data.blogId %>'class="mr-2"><button
+                                            type="button" class="btn btn-primary">Edit</button></a>
+                                    <a href='http://localhost:3000/api/blogs/<%= data.blogId %>?_method=DELETE'><button
+                                            type="button" class="btn btn-danger">Delete</button></a>
+                                </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body mb-1">
+                        <p><%- data.content %></p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Author: <%= data.createdBy %>,
+                        Published On : <%= data.createdOn %>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-md-4">
+            </div>
+        </div>
+
+    </div>
+    <footer>
+        <%- include('partials/footer'); %>
+    </footer>
+
+</body>
+
+</html>

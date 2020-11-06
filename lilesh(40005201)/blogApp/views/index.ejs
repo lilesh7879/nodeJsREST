@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/head'); %>
+</head>
+
+<body>
+
+    <header>
+        <%- include('partials/header'); %>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row mt-2">
+            <div class="col-md-8">
+                <h1>BLOGS</h1>
+                <hr>
+
+                <% data.forEach(function(data) { %>
+                <div class="card mt-2">
+                    <a href='http://localhost:3000/api/blogs/<%=data.blogId%>'><div class="card-header ">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <%= data.title %>
+                            </div>
+                        </div>
+                    </div></a>
+                    <div class="card-body mb-1">
+                        <p><%- data.content %></p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Author: <%= data.createdBy%>
+                    </div>
+
+                </div>
+                <% }); %>
+
+
+            </div>
+            <div class="col-md-4">
+                <div class="card-header">
+                    <h3>Blogs so Far...</h3>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        <% data.forEach(function(data) { %>
+                        <li class="list-group-item">
+                            <a class="darkAnchor" href='http://localhost:3000/api/blogs/<%=data.blogId%>'>
+                                <p><%= data.title %></p>
+                            </a>
+                        </li>
+                        <% }); %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
